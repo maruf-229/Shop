@@ -9,6 +9,7 @@ use App\Models\Logo;
 use App\Models\PaymentMethod;
 use App\Models\PrivacyPolicy;
 use App\Models\Social_link;
+use App\Models\Term;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -27,7 +28,8 @@ class AuthenticatedSessionController extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('auth.login', compact('logos' ,'contact_infos','social_links','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('auth.login', compact('logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
 
     /**

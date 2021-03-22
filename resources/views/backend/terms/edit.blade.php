@@ -4,18 +4,18 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header" >
-                    <b>Edit Privacy-policy</b>
+                    <b>Edit Terms & Conditions</b>
                 </div>
                 <div class="card-body">
 
-                    <form action="{{route('admin.backend.privacy_policy.update',$privacy_policy->id)}}" method="POST" enctype="multipart/form-data" id="categoryForm">
+                    <form action="{{route('admin.backend.term.update',$term->id)}}" method="POST" enctype="multipart/form-data" id="categoryForm">
                         @csrf
                         @method('POST')
                         <div class="mb-3">
                             <label for="description" class="form-label">Description</label>
-                                <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{$privacy_policy->description}}</textarea>
+                            <textarea name="description" id="description" cols="30" rows="10" class="form-control">{{$term->description}}</textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Update Privacy-policy</button>
+                        <button type="submit" class="btn btn-primary">Update Terms & Conditions</button>
                     </form>
                 </div>
             </div>
@@ -39,5 +39,5 @@
             ]
         });
     </script>
-        @endsection
+@endsection
 

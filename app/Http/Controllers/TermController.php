@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PrivacyPolicy;
+use App\Models\Term;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class PrivacyPolicyController extends Controller
+class TermController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PrivacyPolicyController extends Controller
      */
     public function index()
     {
-        $privacy_policies = DB::table('privacy_policies')->get();
-        return view('backend.privacy.index',compact('privacy_policies'));
+        $terms = DB::table('terms')->get();
+        return view('backend.terms.index',compact('terms'));
     }
 
     /**
@@ -43,10 +43,10 @@ class PrivacyPolicyController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PrivacyPolicy  $privacyPolicy
+     * @param  \App\Models\Term  $term
      * @return \Illuminate\Http\Response
      */
-    public function show(PrivacyPolicy $privacyPolicy)
+    public function show(Term $term)
     {
         //
     }
@@ -54,42 +54,42 @@ class PrivacyPolicyController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PrivacyPolicy  $privacyPolicy
+     * @param  \App\Models\Term  $term
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
-    public function edit(PrivacyPolicy $privacyPolicy,$id)
+    public function edit(Term $term,$id)
     {
-        $privacy_policy= PrivacyPolicy::where('id',$id)->first();
-        return view('backend.privacy.edit',compact('privacy_policy'));
+        $term= Term::where('id',$id)->first();
+        return view('backend.terms.edit',compact('term'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PrivacyPolicy  $privacyPolicy
+     * @param  \App\Models\Term  $term
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response
      */
-    public function update(Request $request, PrivacyPolicy $privacyPolicy,$id)
+    public function update(Request $request, Term $term,$id)
     {
         $request->validate([
             'description' => 'required',
         ]);
-        $privacy_policy = PrivacyPolicy::where('id',$id)->first();
-        $privacy_policy->description = $request-> description;
+        $term = Term::where('id',$id)->first();
+        $term->description = $request-> description;
 
-        $privacy_policy->save();
+        $term->save();
 
-        return redirect()->route('admin.backend.privacy_policy');
+        return redirect()->route('admin.backend.term');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PrivacyPolicy  $privacyPolicy
+     * @param  \App\Models\Term  $term
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PrivacyPolicy $privacyPolicy)
+    public function destroy(Term $term)
     {
         //
     }

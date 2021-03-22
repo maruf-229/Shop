@@ -10,6 +10,7 @@ use App\Http\Controllers\PaymentMethodController;
 use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SocialLinkController;
+use App\Http\Controllers\TermController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,11 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
         Route::get('/', [PrivacyPolicyController::class,'index'])->name('backend.privacy_policy');
         Route::get('/edit/{id}', [PrivacyPolicyController::class,'edit'])->name('backend.privacy_policy.edit');
         Route::post('/edit/{id}', [PrivacyPolicyController::class,'update'])->name('backend.privacy_policy.update');
+    });
+    Route::group(['prefix' => 'terms'], function () {
+        Route::get('/', [TermController::class,'index'])->name('backend.term');
+        Route::get('/edit/{id}', [TermController::class,'edit'])->name('backend.term.edit');
+        Route::post('/edit/{id}', [TermController::class,'update'])->name('backend.term.update');
     });
 });
 

@@ -63,6 +63,12 @@
                     <p>Privacy Policy</p>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('admin.backend.term') }}">
+                    <i class="material-icons">location_ons</i>
+                    <p>Terms & Conditions</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

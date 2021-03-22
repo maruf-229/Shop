@@ -10,6 +10,7 @@ use App\Models\PaymentMethod;
 use App\Models\PrivacyPolicy;
 use App\Models\Product;
 use App\Models\Social_link;
+use App\Models\Term;
 use Illuminate\Http\Request;
 
 class Frontend extends Controller
@@ -21,7 +22,8 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.dashboard', compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('frontend.dashboard', compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
 
     public function category(){
@@ -32,7 +34,8 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.category', compact('banners','logos' ,'contact_infos','social_links','categories','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('frontend.category', compact('banners','logos' ,'contact_infos','social_links','categories','payment_methods','privacy_policies','terms'));
     }
     public function product($id){
         //dd($id);
@@ -44,7 +47,8 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.product',compact('banners','logos','contact_infos','social_links','payment_methods','privacy_policies'))->with('products',$products);
+        $terms=Term::all();
+        return view('frontend.product',compact('banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms'))->with('products',$products);
     }
     public function productShow($id)
     {
@@ -55,7 +59,8 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.show',compact('product','banners','logos','contact_infos','social_links','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('frontend.show',compact('product','banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
     public function privacy(){
         $banners = Banner::all();
@@ -64,7 +69,8 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.privacy',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('frontend.privacy',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
     public function terms(){
         $banners = Banner::all();
@@ -73,6 +79,7 @@ class Frontend extends Controller
         $social_links= Social_link::all();
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
-        return view('frontend.terms',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies'));
+        $terms=Term::all();
+        return view('frontend.terms',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
 }
