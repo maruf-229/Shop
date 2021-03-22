@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProductsTable extends Migration
+class CreateSocialLinksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('social_links', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->integer('quantity')->default(1);
-            $table->integer('price');
-            $table->foreignId('category_id');
-            $table->string('image')->nullable();
+            $table->string('twitter');
+            $table->string('facebook');
+            $table->string('linkedin');
+            $table->string('instagram');
+            $table->string('youtube');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('social_links');
     }
 }

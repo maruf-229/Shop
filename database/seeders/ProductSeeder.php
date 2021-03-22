@@ -20,6 +20,7 @@ class ProductSeeder extends Seeder
             'quantity' => '6',
             'price' => '1500',
             'category_id' =>'1',
+            'image'=> 'product-1.jpg',
         ]);
     }
 }

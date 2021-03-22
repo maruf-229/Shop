@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
-use App\Models\ProductImage;
+//use App\Models\ProductImage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Image;
 
@@ -24,7 +25,7 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Http\Response
      */
     public function create()
     {
@@ -55,21 +56,35 @@ class ProductController extends Controller
         $product->price = $request->price;
         $product->quantity = $request->quantity;
         $product->category_id = $request->category;
+
+        if($request->hasFile('image')){
+            $image              = $request->file('image');
+            $OriginalExtension  = $image->getClientOriginalExtension();
+            $image_name         = Carbon::now()->format('d-m-Y H-i-s') .'.'. $OriginalExtension;
+            $destinationPath    = 'img';
+            $resize_image       =Image::make($image->getRealPath());
+            $resize_image->resize(500, 500, function($constraint){
+                $constraint->aspectRatio();
+            });
+            $resize_image->save($destinationPath . '/' . $image_name);
+
+            $product->image    = $image_name;
+        }
         $product->save();
 
-        if (count($request->product_image) > 0) {
-
-            foreach ($request->product_image as $image) {
-                $img = time() . '.' . $image->getClientOriginalExtension();
-                $location = public_path('img/' . $img);
-                Image::make($image)->save($location);
-
-                $product_image = new ProductImage;
-                $product_image->product_id = $product->id;
-                $product_image->image = $img;
-                $product_image->save();
-            }
-        }
+//        if (count($request->product_image) > 0) {
+//
+//            foreach ($request->product_image as $image) {
+//                $img = time() . '.' . $image->getClientOriginalExtension();
+//                $location = public_path('img/' . $img);
+//                Image::make($image)->save($location);
+//
+//                $product_image = new ProductImage;
+//                $product_image->product_id = $product->id;
+//                $product_image->image = $img;
+//                $product_image->save();
+//            }
+//        }
       return redirect()->route('admin.product.index');
     }
 
@@ -123,18 +138,19 @@ class ProductController extends Controller
 
         $product->save();
 
-//        if (count($request->product_image)>0) {
-//
+        if ($request->product_image) {
+
 //            foreach ($request->product_image as $image) {
-//                $img = time() . '.' . $image->getClientOriginalExtension();
-//                $location = public_path('img/' . $img);
-//                Image::make($image)->save($location);
-//                $product_image = new ProductImage;
-//                $product_image->product_id = $product->id;
-//                $product_image->image = $img;
-//                $product_image->save();
+            $image = $request->product_image;
+                $img = time() . '.' . $image->getClientOriginalExtension();
+                $location = public_path('img/' . $img);
+                Image::make($image)->save($location);
+                $product_image = new ProductImage;
+                $product_image->product_id = $product->id;
+                $product_image->image = $img;
+                $product_image->save();
 //            }
-//        }
+        }
 
         return redirect()->route('admin.product.index');
     }

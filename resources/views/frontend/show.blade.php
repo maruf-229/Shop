@@ -10,13 +10,8 @@
             <h1><b>Products</b></h1>
             <div class="row">
                 <div class="col-6">
-                    @php $i =1; @endphp
-                    @foreach($product->images as $image)
-                        @if($i>0)
-                            <img class="img-fluid" src="{{asset('img/'.$image->image)}}" alt="Image" >
-                        @endif
-                        @php $i--; @endphp
-                    @endforeach
+                    <img class="img-fluid" src="{{asset('img/'.$product->image)}}" alt="Image" >
+
                 </div>
                 <div class="col-6">
                     <h3><b>Product Title : {{ $product->title }}</b></h3>

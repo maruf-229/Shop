@@ -13,19 +13,15 @@
                     <table class="table table-hover table-striped">
                         <tr>
                             <th>#</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Email</th>
+                            <th>Policies</th>
                             <th>Manage</th>
                         </tr>
-                        @foreach($contact_infos as $contact_info)
+                        @foreach($privacy_policies as $privacy_policy)
                             <tr>
                                 <td>#</td>
-                                <td>{{ $contact_info->address }}</td>
-                                <td>{{ $contact_info->phone }}</td>
-                                <td>{{ $contact_info->email }}</td>
+                                <td>{{ $privacy_policy->description }}</td>
                                 <td>
-                                    <a href="{{ route('admin.backend.contact_info.edit', $contact_info->id ) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{ route('admin.backend.privacy_policy.edit', $privacy_policy->id ) }}" class="btn btn-success">Edit</a>
                                 </td>
                             </tr>
                         @endforeach

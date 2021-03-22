@@ -7,7 +7,7 @@
                     Manage Product
                 </div>
                 <div class="card-body">
-                    <a href="{{route('admin.product.create')}}" class="btn btn-primary">Add Category</a>
+                    <a href="{{route('admin.product.create')}}" class="btn btn-primary">Add Product</a>
                     <table class="table table-hover table-striped">
                         <tr>
                             <th>#</th>
@@ -15,6 +15,7 @@
                             <th>Price</th>
                             <th>Quantity</th>
                             <th>Category</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                         @foreach($products as $product)
@@ -24,8 +25,8 @@
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->quantity }}</td>
                                 <td>{{ $product->category->name }}</td>
-{{--                                <td><img src="{{ asset('img/'.$product->product_image->image) }}" alt="Image" width="50px"></td>--}}
-                                <td>
+                                <td><img src="{{ asset('img/'.$product->image) }}" alt="Image" width="50px"> </td>
+                                  <td>
                                     <a href="{{ route('admin.product.edit', $product->id ) }}" class="btn btn-success">Edit</a>
                                     <a href="#deleteModal{{ $product->id }}" data-toggle="modal" class="btn btn-danger">Delete</a>
                                     <!-- Modal -->

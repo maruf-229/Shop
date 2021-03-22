@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\ProductImage;
+use App\Models\Social_link;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ProductImageFactory extends Factory
+class SocialLinkFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = ProductImage::class;
+    protected $model = Social_link::class;
 
     /**
      * Define the model's default state.

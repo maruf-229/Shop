@@ -25,13 +25,7 @@
                             </div>
                             <div class="product-image">
                                 <a href="product-detail.html">
-                                    @php $i =1; @endphp
-                                    @foreach($product->images as $image)
-                                        @if($i>0)
-                                            <img src="{{asset('img/'.$image->image)}}" alt="Product Image">
-                                        @endif
-                                        @php $i--; @endphp
-                                    @endforeach
+                                    <img src="{{asset('img/'.$product->image)}}" alt="Product Image">
                                 </a>
                                 <div class="product-action">
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>

@@ -6,7 +6,10 @@ use App\Http\Controllers\ContactInfoController;
 use App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Frontend;
 use App\Http\Controllers\LogoController;
+use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\PrivacyPolicyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SocialLinkController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[Frontend::class,'index'])->name('home');
 Route::get('/categories', [Frontend::class ,'category'])->name('frontend.category');
+Route::get('/privacy-policy', [Frontend::class ,'privacy'])->name('frontend.privacy');
+Route::get('/terms', [Frontend::class ,'terms'])->name('frontend.terms');
 Route::get('/products/{id}', [Frontend::class,'product'])->name('frontend.category.product');
 Route::get('/show/{id}', [Frontend::class,'productShow'])->name('show');
 
@@ -32,7 +37,6 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
-    Route::resource('contact_info', ContactInfoController::class);
     Route::resource('banner', BannerController::class);
 
     Route::group(['prefix' => 'contact_info'], function () {
@@ -44,6 +48,21 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
         Route::get('/', [LogoController::class,'index'])->name('backend.logo');
         Route::get('/edit/{id}', [LogoController::class,'edit'])->name('backend.logo.edit');
         Route::post('/edit/{id}', [LogoController::class,'update'])->name('backend.logo.update');
+    });
+    Route::group(['prefix' => 'payment_method'], function () {
+        Route::get('/', [PaymentMethodController::class,'index'])->name('backend.payment_method');
+        Route::get('/edit/{id}', [PaymentMethodController::class,'edit'])->name('backend.payment_method.edit');
+        Route::post('/edit/{id}', [PaymentMethodController::class,'update'])->name('backend.payment_method.update');
+    });
+    Route::group(['prefix' => 'social'], function () {
+        Route::get('/', [SocialLinkController::class,'index'])->name('backend.social_link');
+        Route::get('/edit/{id}', [SocialLinkController::class,'edit'])->name('backend.social_link.edit');
+        Route::post('/edit/{id}', [SocialLinkController::class,'update'])->name('backend.social_link.update');
+    });
+    Route::group(['prefix' => 'privacy_policy'], function () {
+        Route::get('/', [PrivacyPolicyController::class,'index'])->name('backend.privacy_policy');
+        Route::get('/edit/{id}', [PrivacyPolicyController::class,'edit'])->name('backend.privacy_policy.edit');
+        Route::post('/edit/{id}', [PrivacyPolicyController::class,'update'])->name('backend.privacy_policy.update');
     });
 });
 

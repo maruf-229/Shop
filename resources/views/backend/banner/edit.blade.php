@@ -6,7 +6,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header" >
-                    <b>Add Category</b>
+                    <b>Edit Banner</b>
                 </div>
                 <div class="card-body">
                     <form action="{{route('admin.banner.update',$banner->id)}}" method="POST" enctype="multipart/form-data">
@@ -29,7 +29,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Add category</button>
+                        <button type="submit" class="btn btn-primary">Update Banner</button>
                     </form>
                 </div>
             </div>

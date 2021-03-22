@@ -102,27 +102,28 @@ class BannerController extends Controller
      */
     public function update(Request $request,$id)
     {
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-        ]);
-        $banner = Banner::find($id);
-        $banner->title = $request->title;
-        $banner->description = $request->description;
-        if($request->hasFile('image')){
-            $image              = $request->file('image');
-            $OriginalExtension  = $image->getClientOriginalExtension();
-            $image_name         = Carbon::now()->format('d-m-Y H-i-s') .'.'. $OriginalExtension;
-            $destinationPath    = 'img';
-            $resize_image       =Image::make($image->getRealPath());
-//            $resize_image->resize(500,500, function($constraint){
-//                $constraint->aspectRatio();
-//            });
-            $resize_image->save($destinationPath . '/' . $image_name);
-            $banner->image    = $image_name;
-        }
-        $banner->save();
-        return redirect()->route('admin.banner.index');
+        echo 'rgrgrg';
+//        $request->validate([
+//            'title' => 'required|max:255',
+//            'description' => 'required',
+//        ]);
+//        $banner = Banner::find($id);
+//        $banner->title = $request->title;
+//        $banner->description = $request->description;
+//        if($request->hasFile('image')){
+//            $image              = $request->file('image');
+//            $OriginalExtension  = $image->getClientOriginalExtension();
+//            $image_name         = Carbon::now()->format('d-m-Y H-i-s') .'.'. $OriginalExtension;
+//            $destinationPath    = 'img';
+//            $resize_image       =Image::make($image->getRealPath());
+////            $resize_image->resize(500,500, function($constraint){
+////                $constraint->aspectRatio();
+////            });
+//            $resize_image->save($destinationPath . '/' . $image_name);
+//            $banner->image    = $image_name;
+//        }
+//        $banner->save();
+//        return redirect()->route('admin.banner.index');
 
     }
 

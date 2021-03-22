@@ -19,13 +19,15 @@
                 <div class="footer-widget">
                     <h2>Follow Us</h2>
                     <div class="contact-info">
+                        @foreach($social_links as $social_link)
                         <div class="social">
-                            <a href=""><i class="fab fa-twitter"></i></a>
-                            <a href=""><i class="fab fa-facebook-f"></i></a>
-                            <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            <a href=""><i class="fab fa-instagram"></i></a>
-                            <a href=""><i class="fab fa-youtube"></i></a>
+                            <a href="{{ $social_link->twitter }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ $social_link->facebook }}"target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="{{ $social_link->linkedin }}"target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="{{ $social_link->instagram }}"target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="{{ $social_link->youtube }}"target="_blank"><i class="fab fa-youtube"></i></a>
                         </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -34,9 +36,8 @@
                 <div class="footer-widget">
                     <h2>Company Info</h2>
                     <ul>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="{{ route('frontend.privacy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ route('frontend.terms') }}">Terms & Condition</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,7 +58,9 @@
             <div class="col-md-6">
                 <div class="payment-method">
                     <h2>We Accept:</h2>
-                    <img src="/img/payment-method.png" alt="Payment Method" />
+                    @foreach($payment_methods as $payment_method)
+                    <img src="{{asset('img/'.$payment_method->image)}}" alt="Payment Method" />
+                    @endforeach
                 </div>
             </div>
             <div class="col-md-6">
@@ -81,9 +84,6 @@
                 <p>Copyright &copy; <a href="https://htmlcodex.com">HTML Codex</a>. All Rights Reserved</p>
             </div>
 
-            <div class="col-md-6 template-by">
-                <p>Template By <a href="https://htmlcodex.com">HTML Codex</a></p>
-            </div>
         </div>
     </div>
 </div>

@@ -1,10 +1,10 @@
 @extends('layouts.frontend.app')
 @section('content')
     <!-- Start Contact Us  -->
-    <div class="contact-box-main">
-        <div class="container">
+    <div class="contact-box-main" style="text-align: center">
+        <div class="container" style="text-align: center">
             <div class="row">
-                <div class="col-lg-12 col-sm-12">
+                <div class="col-md-3 col-lg-3 col-sm-3">
                     <div class="contact-form-right">
                         <h2>LOGIN</h2>
                         <br>

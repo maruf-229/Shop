@@ -6,7 +6,7 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    Manage Product
+                    Manage Logo
                 </div>
                 <div class="card-body">
 
@@ -24,7 +24,6 @@
                                 <td>
                                     <a href="{{route('admin.backend.logo.edit' , $logo->id)}}" class="btn btn-success">Edit</a>
 
-                                    <!-- Modal -->
 
                                 </td>
                             </tr>

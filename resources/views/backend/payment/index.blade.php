@@ -6,33 +6,35 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    Information
+                    Manage Logo
                 </div>
                 <div class="card-body">
 
                     <table class="table table-hover table-striped">
                         <tr>
                             <th>#</th>
-                            <th>Address</th>
-                            <th>Phone</th>
-                            <th>Email</th>
+                            <th>Image</th>
                             <th>Manage</th>
                         </tr>
-                        @foreach($contact_infos as $contact_info)
+                        @foreach($payment_methods as $payment_method)
                             <tr>
                                 <td>#</td>
-                                <td>{{ $contact_info->address }}</td>
-                                <td>{{ $contact_info->phone }}</td>
-                                <td>{{ $contact_info->email }}</td>
+                                <td><img src="{{ asset('img/'.$payment_method->image) }}" alt="Image" width="50px"> </td>
+
                                 <td>
-                                    <a href="{{ route('admin.backend.contact_info.edit', $contact_info->id ) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{route('admin.backend.payment_method.edit' , $payment_method->id)}}" class="btn btn-success">Edit</a>
+
+
                                 </td>
                             </tr>
                         @endforeach
+
                     </table>
                 </div>
             </div>
 
         </div>
+
     </div>
+
 @endsection

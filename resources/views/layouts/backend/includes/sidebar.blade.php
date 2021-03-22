@@ -10,7 +10,7 @@
     <div class="sidebar-wrapper">
         <ul class="nav">
             <li class="nav-item active  ">
-                <a class="nav-link" href="./dashboard.html">
+                <a class="nav-link" href="{{ route('admin.dashboard') }}">
                     <i class="material-icons">dashboard</i>
                     <p>Dashboard</p>
                 </a>
@@ -46,21 +46,21 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./notifications.html">
-                    <i class="material-icons">notifications</i>
-                    <p>Notifications</p>
+                <a class="nav-link" href="{{ route('admin.backend.social_link') }}">
+                    <i class="material-icons">location_ons</i>
+                    <p>Social</p>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link" href="./rtl.html">
-                    <i class="material-icons">language</i>
-                    <p>RTL Support</p>
+                <a class="nav-link" href="{{ route('admin.backend.payment_method') }}">
+                    <i class="material-icons">location_ons</i>
+                    <p>Payment Method</p>
                 </a>
             </li>
-            <li class="nav-item active-pro ">
-                <a class="nav-link" href="./upgrade.html">
-                    <i class="material-icons">unarchive</i>
-                    <p>Upgrade to PRO</p>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('admin.backend.privacy_policy') }}">
+                    <i class="material-icons">location_ons</i>
+                    <p>Privacy Policy</p>
                 </a>
             </li>
         </ul>
