@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Banner;
+use App\Models\BannerTo;
 use App\Models\Category;
 use App\Models\ContactInfo;
 use App\Models\Logo;
@@ -23,7 +24,9 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.dashboard', compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
+        $categories=Category::orderBy('id','desc')->get();
+        $banner_tos=BannerTo::all();
+        return view('frontend.dashboard', compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms','categories','banner_tos'));
     }
 
     public function category(){
@@ -35,7 +38,8 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.category', compact('banners','logos' ,'contact_infos','social_links','categories','payment_methods','privacy_policies','terms'));
+        $banner_tos=BannerTo::all();
+        return view('frontend.category', compact('banners','logos' ,'contact_infos','social_links','categories','payment_methods','privacy_policies','terms','banner_tos'));
     }
     public function product($id){
         //dd($id);
@@ -48,7 +52,9 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.product',compact('banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms'))->with('products',$products);
+        $categories=Category::orderBy('id','desc')->get();
+        $banner_tos=BannerTo::all();
+        return view('frontend.product',compact('banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms','categories','banner_tos'))->with('products',$products);
     }
     public function productShow($id)
     {
@@ -60,7 +66,9 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.show',compact('product','banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms'));
+        $categories=Category::orderBy('id','desc')->get();
+        $banner_tos=BannerTo::all();
+        return view('frontend.show',compact('product','banners','logos','contact_infos','social_links','payment_methods','privacy_policies','terms','categories','banner_tos'));
     }
     public function privacy(){
         $banners = Banner::all();
@@ -70,7 +78,9 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.privacy',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
+        $categories=Category::orderBy('id','desc')->get();
+        $banner_tos=BannerTo::all();
+        return view('frontend.privacy',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms','categories','banner_tos'));
     }
     public function terms(){
         $banners = Banner::all();
@@ -80,6 +90,8 @@ class Frontend extends Controller
         $payment_methods= PaymentMethod::all();
         $privacy_policies=PrivacyPolicy::all();
         $terms=Term::all();
-        return view('frontend.terms',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
+        $categories=Category::orderBy('id','desc')->get();
+        $banner_tos=BannerTo::all();
+        return view('frontend.terms',compact('banners','logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms','categories','banner_tos'));
     }
 }

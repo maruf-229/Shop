@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             PaymentMethodSeeder::class,
             PrivacyPolicySeeder::class,
             TermSeeder::class,
+            BannerToSeeder::class,
         ]);
     }
 }

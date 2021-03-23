@@ -6,28 +6,35 @@
         <div class="content-wrapper">
             <div class="card">
                 <div class="card-header">
-                    Information
+                    Manage Right-Banner
                 </div>
                 <div class="card-body">
 
                     <table class="table table-hover table-striped">
                         <tr>
                             <th>#</th>
-                            <th>Policies</th>
+                            <th>Image</th>
                             <th>Manage</th>
                         </tr>
-                        @foreach($terms as $term)
+                        @foreach($banner_tos as $banner_to)
                             <tr>
                                 <td>#</td>
-                                <td>{!! $term->description !!}</td>
+                                <td><img src="{{ asset('img/'.$banner_to->image) }}" alt="Image" width="50px"> </td>
+
                                 <td>
-                                    <a href="{{ route('admin.backend.term.edit', $term->id ) }}" class="btn btn-success">Edit</a>
+                                    <a href="{{route('admin.backend.banner_to.edit' , $banner_to->id)}}" class="btn btn-success">Edit</a>
+
+
                                 </td>
                             </tr>
                         @endforeach
+
                     </table>
                 </div>
             </div>
+
         </div>
+
     </div>
+
 @endsection

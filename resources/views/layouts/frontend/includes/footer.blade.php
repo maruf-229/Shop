@@ -55,9 +55,9 @@
             <div class="col-md-6">
                 <div class="payment-security">
                     <h2>Secured By:</h2>
-                    <img src="/img/godaddy.svg" alt="Payment Security" />
-                    <img src="/img/norton.svg" alt="Payment Security" />
-                    <img src="/img/ssl.svg" alt="Payment Security" />
+                    <img src="/img/x/godaddy.svg" alt="Payment Security" />
+                    <img src="/img/x/norton.svg" alt="Payment Security" />
+                    <img src="/img/x/ssl.svg" alt="Payment Security" />
                 </div>
             </div>
         </div>

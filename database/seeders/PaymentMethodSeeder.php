@@ -16,7 +16,7 @@ class PaymentMethodSeeder extends Seeder
     public function run()
     {
         $payment_method = new PaymentMethod();
-        $payment_method->image = 'payment-method.png';
+        $payment_method->image = 'x/payment-method.png';
         $payment_method->save();
     }
 }

@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactInfo;
+use App\Models\Logo;
+use App\Models\PaymentMethod;
+use App\Models\PrivacyPolicy;
+use App\Models\Social_link;
+use App\Models\Term;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,11 +20,17 @@ class NewPasswordController extends Controller
     /**
      * Display the password reset view.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function create(Request $request)
     {
-        return view('auth.reset-password', ['request' => $request]);
+        $logos = Logo::all();
+        $contact_infos = ContactInfo::all();
+        $social_links= Social_link::all();
+        $payment_methods= PaymentMethod::all();
+        $privacy_policies=PrivacyPolicy::all();
+        $terms=Term::all();
+        return view('auth.reset-password', ['request' => $request], compact('logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
 
     /**

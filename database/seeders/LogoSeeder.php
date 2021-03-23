@@ -15,7 +15,7 @@ class LogoSeeder extends Seeder
     public function run()
     {
         $logo = new Logo();
-        $logo->image = 'logo.png';
+        $logo->image = 'x/logo.png';
         $logo->save();
     }
 }

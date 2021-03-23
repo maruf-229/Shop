@@ -7,7 +7,7 @@
                     Manage Banner
                 </div>
                 <div class="card-body">
-
+                    <a href="{{route('admin.banner.create')}}" class="btn btn-primary">Add Banner</a>
                     <table class="table table-hover table-striped">
                         <tr>
                             <th>#</th>
