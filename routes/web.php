@@ -39,6 +39,7 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::post('/product/getProducts/',[ProductController::class,'getProducts'])->name('product.getProducts');
     Route::resource('banner', BannerController::class);
 
     Route::group(['prefix' => 'contact_info'], function () {

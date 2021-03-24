@@ -2,6 +2,7 @@
 <link rel="apple-touch-icon" sizes="76x76" href="/../assets/img/apple-icon.png">
 <link rel="icon" type="image/png" href="/../assets/img/favicon.png">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="csrf-token" content="{{ csrf_token() }}">
 <title>
     Material Dashboard by Creative Tim
 </title>
@@ -15,3 +16,4 @@
 <link href="/../assets/demo/demo.css" rel="stylesheet" />
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" rel="stylesheet">
