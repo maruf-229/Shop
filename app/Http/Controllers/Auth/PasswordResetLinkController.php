@@ -3,6 +3,12 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactInfo;
+use App\Models\Logo;
+use App\Models\PaymentMethod;
+use App\Models\PrivacyPolicy;
+use App\Models\Social_link;
+use App\Models\Term;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
@@ -11,11 +17,17 @@ class PasswordResetLinkController extends Controller
     /**
      * Display the password reset link request view.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
     public function create()
     {
-        return view('auth.forgot-password');
+        $logos = Logo::all();
+        $contact_infos = ContactInfo::all();
+        $social_links= Social_link::all();
+        $payment_methods= PaymentMethod::all();
+        $privacy_policies=PrivacyPolicy::all();
+        $terms=Term::all();
+        return view('auth.forgot-password', compact('logos' ,'contact_infos','social_links','payment_methods','privacy_policies','terms'));
     }
 
     /**

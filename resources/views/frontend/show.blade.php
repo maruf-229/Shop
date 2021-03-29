@@ -2,12 +2,10 @@
 
 @section('content')
 
-
-
-    <!-- Start Categories  -->
+    @include('frontend.includes.banner')
     <div class="categories-shop">
         <div class="container">
-            <h1><b>Products</b></h1>
+            <h1><b>Product</b></h1>
             <div class="row">
                 <div class="col-6">
                     <img class="img-fluid" src="{{asset('img/'.$product->image)}}" alt="Image" >

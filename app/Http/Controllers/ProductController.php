@@ -172,4 +172,29 @@ class ProductController extends Controller
         session()->flash('success','Product has deleted successfully !!');
         return back();
     }
+    public function getProducts(Request $request){
+        $search = $request->search;
+
+        if($search==''){
+            $products=Product::orderBy("title","asc")
+                ->select("id","title")
+                ->limit(5)
+                ->get();
+        }
+        else{
+            $products=Product::orderBy("title","asc")
+                ->select("id","title")
+                ->where("title","like","%".$search."%")
+                ->limit(5)
+                ->get();
+        }
+        $response=array();
+        foreach ($products as $product){
+            $response[]=array(
+                "value"=>$product->id,
+                "label"=>$product->title
+            );
+        }
+        return response()->json($response);
+    }
 }

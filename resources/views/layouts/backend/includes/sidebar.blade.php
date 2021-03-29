@@ -17,13 +17,13 @@
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="{{ route('admin.category.index') }}">
-                    <i class="material-icons">person</i>
+                    <i class="material-icons">category</i>
                     <p>Categories</p>
                 </a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" href="{{ route('admin.product.index') }}">
-                    <i class="material-icons">content_paste</i>
+                    <i class="material-icons">category</i>
                     <p>Products</p>
                 </a>
             </li>
@@ -31,6 +31,12 @@
                 <a class="nav-link" href="{{ route('admin.banner.index') }}">
                     <i class="material-icons">library_books</i>
                     <p>Banner</p>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ route('admin.backend.banner_to') }}">
+                    <i class="material-icons">library_books</i>
+                    <p>Right-Banner</p>
                 </a>
             </li>
             <li class="nav-item ">

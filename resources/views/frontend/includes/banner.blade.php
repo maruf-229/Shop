@@ -10,6 +10,13 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('frontend.category') }}"><i class="fa fa-shopping-bag"></i>Categories</a>
+                            <ul class="nav-treeview">
+                                @foreach($categories as $category)
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('frontend.category.product', $category->id)}}">{{$category->name}}</a>
+                                </li>
+                                @endforeach
+                            </ul>
                         </li>
                     </ul>
                 </nav>
@@ -25,23 +32,18 @@
                         </div>
                     </div>
                     @endforeach
-
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="header-img">
+                    @foreach($banner_tos as $banner_to)
                     <div class="img-item">
-                        <img src="/img/category-1.jpg" />
+                        <img src="{{ asset('img/'.$banner_to->image) }}" />
                         <a class="/img-text" href="">
                             <p>Some text goes here that describes the image</p>
                         </a>
                     </div>
-                    <div class="img-item">
-                        <img src="/img/category-2.jpg" />
-                        <a class="/img-text" href="">
-                            <p>Some text goes here that describes the image</p>
-                        </a>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

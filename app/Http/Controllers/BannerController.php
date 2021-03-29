@@ -102,7 +102,6 @@ class BannerController extends Controller
      */
     public function update(Request $request,$id)
     {
-        echo 'rgrgrg';
 //        $request->validate([
 //            'title' => 'required|max:255',
 //            'description' => 'required',

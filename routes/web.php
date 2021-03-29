@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\BannerToController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactInfoController;
 use App\Http\Controllers\Dashboard;
@@ -43,6 +44,7 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
 
     Route::resource('category', CategoryController::class);
     Route::resource('product', ProductController::class);
+    Route::post('/product/getProducts/',[ProductController::class,'getProducts'])->name('product.getProducts');
     Route::resource('banner', BannerController::class);
 
     Route::group(['prefix' => 'contact_info'], function () {
@@ -74,6 +76,11 @@ Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], fu
         Route::get('/', [TermController::class,'index'])->name('backend.term');
         Route::get('/edit/{id}', [TermController::class,'edit'])->name('backend.term.edit');
         Route::post('/edit/{id}', [TermController::class,'update'])->name('backend.term.update');
+    });
+    Route::group(['prefix' => 'banner_to'], function () {
+        Route::get('/', [BannerToController::class,'index'])->name('backend.banner_to');
+        Route::get('/edit/{id}', [BannerToController::class,'edit'])->name('backend.banner_to.edit');
+        Route::post('/edit/{id}', [BannerToController::class,'update'])->name('backend.banner_to.update');
     });
 });
 

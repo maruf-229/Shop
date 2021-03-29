@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         @foreach($terms as $term)
-            <p>{{ $term->description }}</p>
+            <p>{!! $term->description !!}</p>
         @endforeach
     </div>
 @endsection

@@ -6,12 +6,12 @@
     <div class="brand">
         <div class="container-fluid">
             <div class="brand-slider">
-                <div class="brand-item"><img src="/img/brand-1.png" alt=""></div>
-                <div class="brand-item"><img src="/img/brand-2.png" alt=""></div>
-                <div class="brand-item"><img src="/img/brand-3.png" alt=""></div>
-                <div class="brand-item"><img src="/img/brand-4.png" alt=""></div>
-                <div class="brand-item"><img src="/img/brand-5.png" alt=""></div>
-                <div class="brand-item"><img src="/img/brand-6.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-1.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-2.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-3.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-4.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-5.png" alt=""></div>
+                <div class="brand-item"><img src="/img/x/brand-6.png" alt=""></div>
             </div>
         </div>
     </div>
@@ -70,9 +70,11 @@
                 <div class="col-md-6">
                     <h1>call us for any queries</h1>
                 </div>
+                @foreach($contact_infos as $contact_info)
                 <div class="col-md-6">
-                    <a href="tel:0123456789">+012-345-6789</a>
+                    <a href="tel:0123456789">{{ $contact_info->phone }}</a>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

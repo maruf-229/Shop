@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Logo;
 use Illuminate\Database\Seeder;
 
-class LogoSeeder extends Seeder
+class SlideImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,8 +13,6 @@ class LogoSeeder extends Seeder
      */
     public function run()
     {
-        $logo = new Logo();
-        $logo->image = 'x/logo.png';
-        $logo->save();
+        //
     }
 }
