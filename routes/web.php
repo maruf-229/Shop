@@ -4,6 +4,7 @@ use App\Http\Controllers\BannerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactInfoController;
 use App\Http\Controllers\Dashboard;
+use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\Frontend;
 use App\Http\Controllers\LogoController;
 use App\Http\Controllers\PaymentMethodController;
@@ -31,6 +32,10 @@ Route::get('/privacy-policy', [Frontend::class ,'privacy'])->name('frontend.priv
 Route::get('/terms', [Frontend::class ,'terms'])->name('frontend.terms');
 Route::get('/products/{id}', [Frontend::class,'product'])->name('frontend.category.product');
 Route::get('/show/{id}', [Frontend::class,'productShow'])->name('show');
+
+
+//Yajra route
+Route::get('/employee',[EmployeeController::class,'index']);
 
 
 Route::group(['prefix'=>'admin', 'as' => 'admin.', 'middleware' => ['auth']], function (){
