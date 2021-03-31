@@ -1,4 +1,3 @@
-
 @extends('layouts.frontend.app')
 @section('content')
     @include('frontend.includes.banner')
